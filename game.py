@@ -21,7 +21,7 @@ pygame.display.set_caption("Snake by marsiekiera")
 # Snake attributes, snake speed - lower=slower
 snake_color = (0, 102, 0)
 snake_size = int(scr_wdh / 20)
-snake_speed = 8
+
 
 # Main Game
 clock = pygame.time.Clock()
@@ -121,6 +121,10 @@ def game_loop():
             food_x = random.randrange(0, scr_wdh - snake_size, snake_size)
             food_y = random.randrange(0, scr_hgt - snake_size, snake_size)
             Lenght_of_snake += 1
+
+        snake_speed = 5
+        while snake_speed < 1.5 * Lenght_of_snake ** 0.5 and snake_speed < 15:
+            snake_speed = snake_speed + 1
 
         clock.tick(snake_speed)
 
